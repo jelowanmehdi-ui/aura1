@@ -2,7 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#0F2A43"><meta name="apple-mobile-web-app-capable" content="yes"><link rel="manifest" href="/manifest.webmanifest"><link rel="icon" href="/icon.svg" type="image/svg+xml"><link rel="preconnect" href="https://fonts.googleapis.com">
+<meta name="theme-color" content="#ffffff"><meta name="apple-mobile-web-app-capable" content="yes"><link rel="manifest" href="/manifest.webmanifest"><link rel="icon" href="/icon.svg" type="image/svg+xml"><link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="preconnect" href="https://zulliiddvqtbdhzjclta.supabase.co" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet"><title>Aura Study | أورَا ستادي</title>
@@ -193,67 +193,76 @@ body{font-family:Cairo,Tajawal,system-ui,-apple-system,"Segoe UI",Tahoma,Arial,s
  .dmBack{display:inline-block}
 }
 .meta .delMsg{border:0;background:transparent;opacity:.5;font-size:12px;padding:0 4px;cursor:pointer}.meta .delMsg:hover{opacity:1}
-/* ===== Aura Study — Professional theme (applied 2026-11-25) =====
-   Palette: white #FFFFFF, soft bg #F4F7F9, dark navy #0F2A43, muted teal #0F766E.
-   Colours + style only. No JS, Supabase, n8n, login, groups, chat or data logic changed.
-   This block is last in <style>, so it wins over the earlier mint/purple themes. */
-:root{--bg:#F4F7F9;--card:#FFFFFF;--ink:#1A2B3C;--muted:#5B6B7A;--line:#DCE4E9;--brand:#0F2A43;--brand2:#0F766E;--soft:#E6F2F0;--good:#0F766E;--bad:#B42318;--warn:#B7791F;--radius:12px;--mint:#0F766E;--night:#0F2A43;--field:#F4F7F9;--shadow:0 1px 3px rgba(15,42,67,.08),0 4px 12px rgba(15,42,67,.06)}
-body{background:#F4F7F9;color:var(--ink)}
+
+/* ===== Aura AI floating assistant ===== */
+#auraAiFab{position:fixed;left:20px;bottom:20px;z-index:40;width:58px;height:58px;border-radius:50%;border:0;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;display:grid;place-items:center;box-shadow:0 8px 24px rgba(109,93,252,.45);cursor:pointer;transition:transform .15s}
+#auraAiFab:hover{transform:scale(1.07)}#auraAiFab svg{width:28px;height:28px}
+#auraAiPanel{position:fixed;left:20px;bottom:92px;z-index:40;width:min(380px,calc(100vw - 24px));height:min(560px,72dvh);display:none;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:0 18px 50px rgba(23,27,45,.25);overflow:hidden}
+#auraAiPanel.open{display:flex}
+.aiHead{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:12px 14px;background:linear-gradient(135deg,var(--brand),var(--brand2));color:#fff;font-weight:800}
+.aiHead button{border:0;background:#ffffff26;color:#fff;border-radius:10px;padding:6px 10px;font-size:13px;cursor:pointer}
+.aiCtx{display:flex;align-items:center;gap:6px;padding:7px 12px;font-size:12.5px;color:var(--muted);border-bottom:1px solid var(--line);background:#fafaff}
+.aiMsgs{flex:1;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:8px;background:#f7f7fc}
+.aiMsg{max-width:88%;padding:8px 12px;border-radius:14px;line-height:1.65;font-size:14.5px;white-space:pre-wrap;overflow-wrap:anywhere}
+.aiMsg.me{align-self:flex-start;background:var(--brand);color:#fff;border-bottom-right-radius:4px}
+.aiMsg.bot{align-self:flex-end;background:#fff;color:var(--ink);border:1px solid var(--line);border-bottom-left-radius:4px}
+.aiMsg.err{background:#fff0ef;color:var(--bad);border-color:#f3c6c2}
+.aiForm{display:flex;gap:8px;padding:10px;border-top:1px solid var(--line);background:#fff;align-items:flex-end}
+.aiForm textarea{flex:1;resize:none;max-height:110px}
+.aiCtxWrap{border-bottom:1px solid var(--line)}.aiCtxWrap .aiCtx{border-bottom:0;padding:5px 12px}.aiSrc{align-self:flex-end;max-width:88%;font-size:12px;color:var(--muted);padding:0 6px;overflow-wrap:anywhere}
+@media(max-width:620px){#auraAiFab{left:14px;bottom:96px;width:54px;height:54px}#auraAiPanel{left:8px;right:8px;width:auto;bottom:160px;height:min(62dvh,520px)}}
+
+/* ===== Aura Study — White, plain, all pages (CSS only, no JS/logic changed) ===== */
+:root{--bg:#FFFFFF;--card:#FFFFFF;--ink:#111827;--muted:#6B7280;--line:#E5E7EB;--brand:#111827;--brand2:#374151;--soft:#F3F4F6;--good:#111827;--radius:12px}
+body{background:#fff;color:var(--ink);font-family:"Cairo",system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif}
 h1,h2,h3{color:var(--ink)}
-.card{border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow)}
-.btn{border-radius:10px}
-.btn.secondary{background:var(--soft);color:var(--brand)}
-.btn.ghost{background:#EDF1F4;color:#33465A}
-.input{background:#FFFFFF;border:1px solid var(--line);border-radius:10px}
-.input:focus{border-color:var(--brand2);box-shadow:0 0 0 3px rgba(15,118,110,.15)}
-.logo{background:linear-gradient(135deg,#0F2A43,#0F766E)!important}
-.avatar{background:var(--soft);color:var(--brand)}
-.tabs{background:#EDF1F4}
-.tabs button.active{color:var(--brand)}
-.side{background:#0F2A43!important;color:#fff}
-.side .brand{color:#fff}
-.nav button{color:#B8C6D3}
-.nav button:hover,.nav button.active{background:rgba(255,255,255,.10);color:#fff}
-.sideFooter .btn{background:#0F766E!important;color:#fff}
-#dashboard .grid>.card:last-child{background:linear-gradient(135deg,#0F2A43,#0F766E)!important;color:#fff}
-#dashboard .grid>.card:last-child .muted{color:#D6EAF2}
-#dashboard .grid>.card:last-child .btn{background:#fff;color:#0F2A43}
-.groupCard{background:#fff;border:1px solid var(--line)}
-.groupCard:hover{border-color:#0F766E}
-.badge{background:#0F766E;color:#fff}
-.grid2>.groupCard:nth-child(5n+2) .badge{background:#0F2A43}
-.grid2>.groupCard:nth-child(5n+3) .badge{background:#5B6B7A}
-.grid2>.groupCard:nth-child(5n+4) .badge{background:#0F766E}
-.grid2>.groupCard:nth-child(5n+5) .badge{background:#33465A}
-.item,.people button{background:#fff;border:1px solid var(--line)}
-.people button.active{background:var(--soft);color:var(--brand)}
-.subnav button.active{color:var(--brand);border-bottom-color:var(--brand)}
-.chatBox{background:#fff}
-.chatMessages{background:#EDF1F4}
-.bubble{background:#fff}
-.mine .bubble{background:#0F2A43!important;color:#fff}
-.chatMessages .message.mine .bubble{background:#0F2A43!important;color:#fff}
-.chatMessages .message.theirs .bubble{background:#fff;color:#16181d}
-.composer{background:#F4F7F9}
-.composer .sendBtn,.sendBtn{background:#0F766E!important}
-.composer .iconBtn{color:#5B6B7A}
-.convo .bd{background:#0F766E!important}
-.fileActions button{color:#0F2A43;border-color:#BFD8D3}
-.lbDl{color:#0F2A43}
-.newsAct.on{background:#E6F2F0;color:#0F766E}
-#auraAiFab{background:linear-gradient(135deg,#0F2A43,#0F766E)!important;box-shadow:0 8px 24px rgba(15,42,67,.35)}
-#auraAiPanel{border-color:var(--line)}
-.status.good{background:#E6F2F0;color:#0F766E}
-.pillRole{background:var(--soft);color:#0F766E}
-.fileLink{color:#0F766E}
-@media(max-width:620px){.side{background:#0F2A43!important}.nav button.active,.nav button:hover{color:#7DD3C8}}
+.muted{color:var(--muted)}
+.btn{background:#fff;color:#111827;border:1px solid #D1D5DB;border-radius:8px;padding:11px 16px;box-shadow:none}
+.btn:hover{background:#F3F4F6}
+.btn.secondary{background:#F3F4F6;color:#111827}
+.btn.ghost{background:#F3F4F6;color:#111827}
+.card{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:none;padding:20px}
+.input,select.input,textarea.input{border:1px solid #D1D5DB;border-radius:8px;padding:12px 14px;background:#fff}
+.input:focus{border-color:#111827;box-shadow:0 0 0 3px #11182714}
+.app{display:grid;grid-template-columns:240px 1fr;min-height:100dvh}
+.side{background:#fff;border-inline-end:1px solid var(--line);padding:20px 14px;display:flex;flex-direction:column;gap:16px;position:sticky;top:0;height:100dvh}
+.side .brand{color:var(--ink)}
+.nav{display:grid;gap:2px}
+.nav button{display:flex;align-items:center;gap:12px;width:100%;text-align:start;background:transparent;color:#374151;border:0;border-radius:8px;padding:11px 12px;font-weight:650;font-size:15px}
+.nav button:hover{background:#F3F4F6}
+.nav button.active{background:#111827;color:#fff}
+.nav button.active .ic{color:#fff}
+.nav .ic{width:20px;height:20px;color:#6B7280}
+.sideFooter{margin-top:auto}
+.sideFooter .btn{width:100%}
+.main{padding:0 28px 40px;min-width:0;background:#fff}
+.topbar{position:sticky;top:0;z-index:20;background:#fff;padding:20px 0 14px;margin-bottom:6px;border-bottom:1px solid var(--line)}
+.topbar h1{font-size:24px;margin:0}
+.pillRole{background:#F3F4F6;color:#111827;border:1px solid var(--line);font-weight:700}
+.avatar{background:#111827;color:#fff}
+.page{max-width:1080px;margin:0 auto}
+.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.sectionTitle{font-size:16px;margin:0 0 12px}
+.authWrap,.setupWrap{background:#fff}
+.authCard,.setupCard{border:1px solid var(--line);box-shadow:none;border-radius:16px}
+.msg.mine,.bubble.mine{background:#E7F3FF!important;color:#111827!important}
+#auraAiFab{background:#1877F2!important;box-shadow:none}
+@media (max-width:760px){
+ .app{grid-template-columns:1fr}
+ .side{position:fixed;bottom:0;top:auto;left:0;right:0;height:auto;z-index:30;flex-direction:row;align-items:center;padding:8px;border-top:1px solid var(--line);border-inline-end:0}
+ .side .brand,.sideFooter{display:none}
+ .nav{grid-template-columns:repeat(6,1fr);width:100%}
+ .nav button{flex-direction:column;gap:4px;font-size:11px;padding:8px 2px;justify-content:center}
+ .main{padding:0 14px 110px}
+ .grid{grid-template-columns:1fr}
+}
 
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4"></script>
 </head><body>
-<section id="setupPane" class="setupWrap hidden"><div class="card setupCard"><div class="brand"><svg class="logo" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#0F2A43"/><path d="M12 28L20 11l8 17M15.5 22.5h9" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 33c7 4 15 4 22 0" fill="none" stroke="#7DD3C8" stroke-width="1.6" stroke-linecap="round"/></svg><span>Aura Study</span></div><h1 class="authTitle">ربط قاعدة البيانات</h1><p class="muted">أدخل رابط المشروع وPublishable key الخاص بـ Supabase. هذا المعلومات العمومية فقط؛ لا تدخل Secret key.</p><label for="projectUrl">Project URL</label><input class="input" id="projectUrl" type="url" value="https://zulliiddvqtbdhzjclta.supabase.co" placeholder="https://your-project.supabase.co" autocomplete="off"><label for="publishableKey">Publishable key</label><input class="input" id="publishableKey" placeholder="sb_publishable_..." autocomplete="off"><div class="row wrap" style="margin-top:15px"><button class="btn" id="saveConfigBtn">حفظ الإعدادات</button><button class="btn secondary" id="testConfigBtn">اختبار الاتصال</button></div><div id="setupStatus" class="status statusLine">علينا نربطو التطبيق بمشروع Supabase الخاص بك. رفع الملفات والفيديوهات يتطلب أن تسمح سياسات Storage بأنواع الملفات المناسبة.</div><p class="footerHint">الإعدادات تُحفظ غير فهذا المتصفح. ما تشاركش مفاتيح Secret أو service_role.</p></div></section>
-<section id="authPane" class="authWrap hidden"><div class="card authCard"><div class="brand"><svg class="logo" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#0F2A43"/><path d="M12 28L20 11l8 17M15.5 22.5h9" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 33c7 4 15 4 22 0" fill="none" stroke="#7DD3C8" stroke-width="1.6" stroke-linecap="round"/></svg><span>Aura Study</span></div><h1 class="authTitle" id="authHeading">مرحبا بك</h1><p class="muted">فضاء الدراسة ديالك، المجموعات والدردشة والملفات في مكان واحد.</p><div class="tabs"><button type="button" id="loginTab" class="active">تسجيل الدخول</button><button type="button" id="signupTab">إنشاء حساب</button></div><form id="authForm" class="stack"><div id="nameField" class="hidden"><label for="displayName">الاسم الكامل</label><input class="input" id="displayName" autocomplete="name" placeholder="الاسم اللي سيظهر للآخرين"></div><div id="roleField" class="hidden"><label for="signupRole">نوع الحساب</label><select class="input" id="signupRole"><option value="student">طالب</option><option value="teacher">أستاذ</option></select></div><div id="teacherCodeField" class="hidden"><label for="teacherCode">كود الأستاذ</label><input class="input" id="teacherCode" type="password" autocomplete="off" placeholder="الكود السري"></div><div><label for="email">البريد الإلكتروني</label><input class="input" id="email" type="email" required autocomplete="email" placeholder="name@example.com"></div><div><label for="password">كلمة السر</label><input class="input" id="password" type="password" required minlength="6" autocomplete="current-password" placeholder="على الأقل 6 حروف"></div><button class="btn" id="authSubmit" type="submit">دخول</button></form><button class="btn ghost" id="forgotBtn" type="button" style="margin-top:10px;width:100%">نسيت كلمة السر؟</button><div id="authStatus" class="status statusLine" aria-live="polite">الاتصال بقاعدة البيانات ضروري لتسجيل الدخول.</div><p class="footerHint">كل حساب جديد يبدأ كطالب. إذا كنتي أستاذ، اختر "أستاذ" في التسجيل ودخل الكود السري.</p><button class="btn ghost" id="changeConfigBtn" type="button" style="margin-top:8px">تغيير إعدادات Supabase</button></div></section>
-<section id="recoveryPane" class="authWrap hidden"><div class="card authCard"><div class="brand"><svg class="logo" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#0F2A43"/><path d="M12 28L20 11l8 17M15.5 22.5h9" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 33c7 4 15 4 22 0" fill="none" stroke="#7DD3C8" stroke-width="1.6" stroke-linecap="round"/></svg><span>Aura Study</span></div><h1 class="authTitle">كلمة سر جديدة</h1><p class="muted">أدخل كلمة السر الجديدة الخاص بك (6 حروف على الأقل).</p><form id="recoveryForm" class="stack"><div><label for="newPassword">كلمة السر الجديدة</label><input class="input" id="newPassword" type="password" required minlength="6" autocomplete="new-password"></div><div><label for="newPassword2">أعد كتابتها</label><input class="input" id="newPassword2" type="password" required minlength="6" autocomplete="new-password"></div><button class="btn" id="recoverySubmit" type="submit">حفظ كلمة السر</button></form><div id="recoveryStatus" class="status statusLine" aria-live="polite"></div></div></section> <div id="appPane" class="app hidden"><aside class="side"><div class="brand"><svg class="logo" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#0F2A43"/><path d="M12 28L20 11l8 17M15.5 22.5h9" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 33c7 4 15 4 22 0" fill="none" stroke="#7DD3C8" stroke-width="1.6" stroke-linecap="round"/></svg><span class="brandText">Aura Study</span></div><nav class="nav"><button data-page="dashboard" class="active" title="الرئيسية"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8M5 10v10h14V10"/></svg> <span class="navText">الرئيسية</span></button><button data-page="newsPage" title="الأخبار"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h11v16H7a2 2 0 01-2-2V4zM16 8h3v10a2 2 0 01-2 2M8 8h5M8 12h5"/></svg> <span class="navText">الأخبار</span></button><button data-page="discover" title="المجموعات"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4-4"/></svg> <span class="navText">المجموعات</span></button><button data-page="direct" title="الرسائل"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4V5z"/></svg> <span class="navText">الرسائل</span></button><button data-page="profilePage" title="حسابي"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg> <span class="navText">حسابي</span></button><button data-page="settingsPage" title="الإعدادات"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/></svg> <span class="navText">الإعدادات</span></button></nav><div class="sideFooter"><button class="btn secondary" id="sideCreate">＋ <span class="navText">إنشاء مجموعة</span></button></div></aside><main class="main">
+<section id="setupPane" class="setupWrap hidden"><div class="card setupCard"><div class="brand"><svg class="logo" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#111827"/><path d="M12 28L20 11l8 17M15.5 22.5h9" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 33c7 4 15 4 22 0" fill="none" stroke="#9CA3AF" stroke-width="1.6" stroke-linecap="round"/></svg><span>Aura Study</span></div><h1 class="authTitle">ربط قاعدة البيانات</h1><p class="muted">أدخل رابط المشروع وPublishable key الخاص بـ Supabase. هذا المعلومات العمومية فقط؛ لا تدخل Secret key.</p><label for="projectUrl">Project URL</label><input class="input" id="projectUrl" type="url" value="https://zulliiddvqtbdhzjclta.supabase.co" placeholder="https://your-project.supabase.co" autocomplete="off"><label for="publishableKey">Publishable key</label><input class="input" id="publishableKey" placeholder="sb_publishable_..." autocomplete="off"><div class="row wrap" style="margin-top:15px"><button class="btn" id="saveConfigBtn">حفظ الإعدادات</button><button class="btn secondary" id="testConfigBtn">اختبار الاتصال</button></div><div id="setupStatus" class="status statusLine">علينا نربطو التطبيق بمشروع Supabase الخاص بك. رفع الملفات والفيديوهات يتطلب أن تسمح سياسات Storage بأنواع الملفات المناسبة.</div><p class="footerHint">الإعدادات تُحفظ غير فهذا المتصفح. ما تشاركش مفاتيح Secret أو service_role.</p></div></section>
+<section id="authPane" class="authWrap hidden"><div class="card authCard"><div class="brand"><svg class="logo" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#111827"/><path d="M12 28L20 11l8 17M15.5 22.5h9" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 33c7 4 15 4 22 0" fill="none" stroke="#9CA3AF" stroke-width="1.6" stroke-linecap="round"/></svg><span>Aura Study</span></div><h1 class="authTitle" id="authHeading">مرحبا بك</h1><p class="muted">فضاء الدراسة ديالك، المجموعات والدردشة والملفات في مكان واحد.</p><div class="tabs"><button type="button" id="loginTab" class="active">تسجيل الدخول</button><button type="button" id="signupTab">إنشاء حساب</button></div><form id="authForm" class="stack"><div id="nameField" class="hidden"><label for="displayName">الاسم الكامل</label><input class="input" id="displayName" autocomplete="name" placeholder="الاسم اللي سيظهر للآخرين"></div><div id="roleField" class="hidden"><label for="signupRole">نوع الحساب</label><select class="input" id="signupRole"><option value="student">طالب</option><option value="teacher">أستاذ</option></select></div><div id="teacherCodeField" class="hidden"><label for="teacherCode">كود الأستاذ</label><input class="input" id="teacherCode" type="password" autocomplete="off" placeholder="الكود السري"></div><div><label for="email">البريد الإلكتروني</label><input class="input" id="email" type="email" required autocomplete="email" placeholder="name@example.com"></div><div><label for="password">كلمة السر</label><input class="input" id="password" type="password" required minlength="6" autocomplete="current-password" placeholder="على الأقل 6 حروف"></div><button class="btn" id="authSubmit" type="submit">دخول</button></form><button class="btn ghost" id="forgotBtn" type="button" style="margin-top:10px;width:100%">نسيت كلمة السر؟</button><div id="authStatus" class="status statusLine" aria-live="polite">الاتصال بقاعدة البيانات ضروري لتسجيل الدخول.</div><p class="footerHint">كل حساب جديد يبدأ كطالب. إذا كنتي أستاذ، اختر "أستاذ" في التسجيل ودخل الكود السري.</p><button class="btn ghost" id="changeConfigBtn" type="button" style="margin-top:8px">تغيير إعدادات Supabase</button></div></section>
+<section id="recoveryPane" class="authWrap hidden"><div class="card authCard"><div class="brand"><svg class="logo" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#111827"/><path d="M12 28L20 11l8 17M15.5 22.5h9" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 33c7 4 15 4 22 0" fill="none" stroke="#9CA3AF" stroke-width="1.6" stroke-linecap="round"/></svg><span>Aura Study</span></div><h1 class="authTitle">كلمة سر جديدة</h1><p class="muted">أدخل كلمة السر الجديدة الخاص بك (6 حروف على الأقل).</p><form id="recoveryForm" class="stack"><div><label for="newPassword">كلمة السر الجديدة</label><input class="input" id="newPassword" type="password" required minlength="6" autocomplete="new-password"></div><div><label for="newPassword2">أعد كتابتها</label><input class="input" id="newPassword2" type="password" required minlength="6" autocomplete="new-password"></div><button class="btn" id="recoverySubmit" type="submit">حفظ كلمة السر</button></form><div id="recoveryStatus" class="status statusLine" aria-live="polite"></div></div></section> <div id="appPane" class="app hidden"><aside class="side"><div class="brand"><svg class="logo" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="10" fill="#111827"/><path d="M12 28L20 11l8 17M15.5 22.5h9" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 33c7 4 15 4 22 0" fill="none" stroke="#9CA3AF" stroke-width="1.6" stroke-linecap="round"/></svg><span class="brandText">Aura Study</span></div><nav class="nav"><button data-page="dashboard" class="active" title="الرئيسية"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8M5 10v10h14V10"/></svg> <span class="navText">الرئيسية</span></button><button data-page="newsPage" title="الأخبار"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h11v16H7a2 2 0 01-2-2V4zM16 8h3v10a2 2 0 01-2 2M8 8h5M8 12h5"/></svg> <span class="navText">الأخبار</span></button><button data-page="discover" title="المجموعات"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4-4"/></svg> <span class="navText">المجموعات</span></button><button data-page="direct" title="الرسائل"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4V5z"/></svg> <span class="navText">الرسائل</span></button><button data-page="profilePage" title="حسابي"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg> <span class="navText">حسابي</span></button><button data-page="settingsPage" title="الإعدادات"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/></svg> <span class="navText">الإعدادات</span></button></nav><div class="sideFooter"><button class="btn secondary" id="sideCreate">＋ <span class="navText">إنشاء مجموعة</span></button></div></aside><main class="main">
 <header class="topbar"><div id="welcomeWrap"><h1 id="welcomeTitle">مرحبا بك </h1><div class="muted" id="welcomeSubtitle">مساحات الدراسة ديالك، كلها في مكان واحد.</div></div><div class="topActions"><button class="btn ghost" id="notificationBtn" type="button" title="إعداد الإشعارات"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 17v-6a6 6 0 0112 0v6l2 2H4l2-2zM10 21h4"/></svg></button><span id="roleBadge" class="pillRole">طالب</span><span id="userEmail" class="muted userEmail"></span><div id="userAvatar" class="avatar">A</div><button class="btn ghost" id="signOutBtn">خروج</button></div></header>
 <section id="dashboard" class="page active"><div class="grid"><div class="card"><div class="row between"><h2 class="sectionTitle">مجموعاتي</h2><button class="btn secondary" id="dashboardCreate">＋ مجموعة</button></div><div id="myGroups" class="grid2"></div></div><div class="card"><h2 class="sectionTitle">المهام الخاصة بي</h2><div id="myTasks" class="list"></div><p class="muted" style="margin-bottom:0"></p></div><div class="card"><h2 class="sectionTitle">آخر الأخبار</h2><div id="activityList" class="list"></div><button class="btn secondary" type="button" data-page="newsPage" style="margin-top:12px;width:100%">شاهد كل الأخبار</button></div><div class="card"><h2 class="sectionTitle">بداية سريعة</h2><p class="muted">أدخل لمجموعتك، تواصل مع الأعضاء، وتابع آخر الأخبار والرسائل.</p><button class="btn" id="goDiscover">اكتشف المجموعات</button></div></div></section>
 <section id="newsPage" class="page"><div class="topbar"><div><h1>آخر الأخبار</h1><div class="muted">أخبار الدراسة ومشاريع الطلبة، مفتوحة للجميع.</div></div><button class="btn ghost" id="newsRefresh" type="button">تحديث</button></div><div class="card newsComposer"><textarea id="newsText" class="input" rows="3" maxlength="2000" placeholder="شارك خبر دراسي ولا مشروع الخاص بك..."></textarea><div id="newsFilePreview" class="muted small"></div><div class="row between wrap"><label class="btn secondary" for="newsFile" style="margin:0;display:inline-block"> صورة أو PDF</label><input id="newsFile" type="file" accept="image/jpeg,image/png,image/webp,image/gif,application/pdf" hidden><button class="btn" id="newsPublish" type="button">نشر</button></div><div id="newsStatus" class="status hidden"></div></div><div id="newsFeed" class="list" style="margin-top:14px"></div></section>
@@ -263,7 +272,8 @@ h1,h2,h3{color:var(--ink)}
 <section id="profilePage" class="page"><div class="card" style="max-width:650px"><h1>حسابي</h1><form id="profileForm" class="stack"><label for="profileName">الاسم اللي يظهر للناس</label><input id="profileName" class="input" maxlength="100" required><label>البريد الإلكتروني</label><input id="profileEmail" class="input" disabled><label>نوع الحساب</label><input id="profileRole" class="input" disabled><label>ID الخاص بك (عطيه لصحابك باش يزيدوك)</label><input id="profileFriendId" class="input" readonly style="direction:ltr;text-align:left;font-family:monospace"><div id="profileFieldWrap" class="hidden"><label for="profileField">التخصص الدراسي</label><select id="profileField" class="input"></select><input id="profileFieldText" class="input hidden" maxlength="60" placeholder="اكتب تخصصك: القانون، الاقتصاد..."><div class="muted small">اختر تخصصك الرئيسي. المجموعات ولائحة المستخدمين ستبقى محدودة بهذا التخصص وفروعه.</div></div><button class="btn" type="submit">حفظ</button></form><div id="profileStatus" class="status statusLine"></div><div id="teacherUpgrade" class="hidden" style="margin-top:22px"><h2 class="sectionTitle">عندك كود الأستاذ؟</h2><div class="row wrap"><input class="input" id="upgradeCode" type="password" autocomplete="off" placeholder="كود الأستاذ" style="flex:1"><button class="btn" id="upgradeBtn" type="button">تفعيل</button></div><div id="upgradeStatus" class="status statusLine"></div></div></div></section>
 <section id="settingsPage" class="page"><div class="card" style="max-width:750px;margin-bottom:14px"><h1>اللغة</h1><select id="langSelect" class="input"><option value="ar">العربية</option><option value="fr">Français</option><option value="en">English</option></select></div><div class="card" style="max-width:750px"><h1>إعدادات الاتصال</h1><p class="muted">رابط Supabase والمفتاح العمومي المستعملان فهذا المتصفح.</p><label for="settingsUrl">Project URL</label><input id="settingsUrl" class="input"><label for="settingsKey">Publishable key</label><input id="settingsKey" class="input"><div class="row wrap" style="margin-top:12px"><button id="updateConfigBtn" class="btn">حفظ الإعدادات</button><button id="testAppConnection" class="btn secondary">اختبار الاتصال</button><button id="resetConfigBtn" class="btn danger">فصل المشروع</button></div><div id="appSettingsStatus" class="status statusLine"></div><div class="notice">ما تحطش Secret key أو service_role هنا. الصلاحيات الحقيقية كتتحكم فيها سياسات RLS داخل Supabase.</div></div></section>
 <div id="globalStatus" class="status" style="margin-top:15px" aria-live="polite"></div>
-</main></div>
+</main><button id="auraAiFab" type="button" aria-label="المساعد الذكي" title="المساعد الذكي"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8L12 3zM18 15l.8 2.2L21 18l-2.2.8L18 21l-.8-2.2L15 18l2.2-.8L18 15z"/></svg></button><div id="auraAiPanel" role="dialog" aria-label="المساعد الذكي"><div class="aiHead"><span>✨ Aura AI</span><span><button id="aiClear" type="button">جديد</button> <button id="aiClose" type="button" aria-label="إغلاق">×</button></span></div><div class="aiCtxWrap"><label class="aiCtx"><input type="checkbox" id="aiUseCtx" checked> خلي المساعد يقرا الصفحة اللي فيها</label><label class="aiCtx"><input type="checkbox" id="aiUseKb" checked> خليه يقلب فملفات (PDF) ومحادثات ومهام مجموعاتي</label></div><div id="aiMsgs" class="aiMsgs"><div class="aiMsg bot">مرحبا! أنا Aura AI. تقدر تسولني على أي حاجة فالتطبيق ولا فالدراسة.</div></div><form id="aiForm" class="aiForm"><textarea id="aiInput" class="input" rows="1" dir="auto" maxlength="4000" placeholder="كتب سؤالك..." autocomplete="off"></textarea><button class="btn" id="aiSend" type="submit">إرسال</button></form></div>
+</div>
 <div id="lightbox" class="lightbox hidden"><button class="lbClose" type="button" aria-label="إغلاق">×</button><img id="lbImg" alt=""><button id="lbDownload" class="lbDl hidden" type="button">تحميل الصورة</button></div><div id="fileViewerModal" class="modalBackdrop"><div class="modal" style="width:min(900px,100%)"><div class="row between"><h2 id="fileViewerTitle">معاينة الملف</h2><button class="btn ghost" type="button" data-close="fileViewerModal">× إغلاق</button></div><div id="fileViewerBody" style="min-height:180px;display:grid;place-items:center;overflow:auto"></div><div class="muted small" style="margin-top:10px">المعاينة كتظهر داخل Aura Study. بعض صيغ Office قد تحتاج التحميل إذا ما دعمهاش المتصفح.</div></div></div><div id="logoutModal" class="modalBackdrop"><div class="modal" style="width:min(400px,100%)"><h2>تسجيل الخروج</h2><p class="muted">هل تريد تسجيل الخروج من حسابك؟</p><label class="row" style="font-weight:400"><input type="checkbox" id="rememberEmail"> حفظ البريد الإلكتروني على هذا الجهاز</label><div class="row" style="margin-top:14px"><button class="btn danger" id="logoutConfirm" type="button">خروج</button><button class="btn ghost" type="button" data-close="logoutModal">إلغاء</button></div></div></div><div id="createGroupModal" class="modalBackdrop"><div class="modal"><div class="row between"><h2>إنشاء مجموعة دراسية</h2><button class="btn ghost" data-close="createGroupModal">×</button></div><form id="createGroupForm" class="stack"><label for="newGroupName">اسم المجموعة</label><input id="newGroupName" class="input" required maxlength="100" placeholder="مثال: اقتصاد الفصل الأول"><label for="newGroupDescription">وصف</label><textarea id="newGroupDescription" class="input" rows="3" maxlength="1000" placeholder="شنو ستدرسون فهذا المجموعة؟"></textarea><div id="groupFieldWrap" class="hidden"><label for="newGroupField">التخصص / الفرع</label><select id="newGroupField" class="input"></select></div><p class="muted">المجموعة يجب أن ترتبط بفرع من التخصص ديالك، ولن تظهر لمستخدمي تخصص آخر داخل التطبيق.</p><button class="btn" type="submit">إنشاء المجموعة</button><div id="createGroupStatus" class="status hidden"></div></form></div></div>
 <div id="manageModal" class="modalBackdrop"><div class="modal"><div class="row between"><h2>إدارة المجموعة</h2><button class="btn ghost" data-close="manageModal">×</button></div><p class="muted">أضف طلبة للمجموعة الخاصة أو العامة، وعيّن مشرفين. غير مالك المجموعة يقدر يغيّر العضوية والأدوار.</p><div class="row wrap" style="margin-bottom:12px"><select id="inviteMemberSelect" class="input" aria-label="اختيار طالب للإضافة" style="flex:1"><option value="">اختر مستخدماً...</option></select><button id="inviteMemberBtn" class="btn">إضافة عضو</button></div><div id="manageMembers" class="list"></div><div id="manageStatus" class="status statusLine"></div></div></div>
 <script>
@@ -271,7 +281,7 @@ h1,h2,h3{color:var(--ink)}
 'use strict';
 const $ = id => document.getElementById(id);
 window.__AURA_RECOVERY=/type=recovery/.test(location.hash||'');window.__AURA_LINK_EXPIRED=/error_code=otp_expired|error=access_denied/.test(location.hash||'');const CFG_KEY='aura_study_supabase_config_v2'; const APP_CONFIG={url:'https://zulliiddvqtbdhzjclta.supabase.co',key:'sb_publishable_Xbyd5t3AiTBpyXgb__PpeQ_CTzY5g7V'};
-const state={client:null,session:null,user:null,profile:null,groups:[],memberships:[],selectedGroup:null,groupTab:'chat',channel:'general',currentDM:null,people:[],tasks:[],resources:[],groupMembers:[],activities:[],fields:[],fieldsReady:false,fieldsError:'',fieldNode:null,authMode:'login',lastError:''};
+const state={client:null,session:null,user:null,profile:null,groups:[],memberships:[],selectedGroup:null,groupTab:'chat',channel:'general',currentDM:null,people:[],tasks:[],resources:[],groupMembers:[],activities:[],fields:[],fieldsReady:false,fieldsError:'',fieldNode:null,authMode:'login',lastError:''};window.__AURA_STATE=state;window.__AURA_SIGN=function(b,p){return signCached(b,p);};
 const escapeHTML = v => String(v ?? '').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const niceError = e => {let m=e?.message||String(e||'وقع خطأ غير معروف'); if(/JWT expired/i.test(m)) return 'انتهات الجلسة. دخل من جديد.'; if(/Failed to fetch|NetworkError/i.test(m)) return 'ما قدرناش نوصلو لـ Supabase. تأكد من الإنترنت ومن Project URL وPublishable key.'; if(/Invalid login credentials/i.test(m)) return 'البريد الإلكتروني أو كلمة السر غير صحيحة.'; if(/Email not confirmed/i.test(m)) return 'يجب عليك تأكد البريد الإلكتروني من الرسالة اللي وصلاتك.'; if(/row-level security|permission denied|42501/i.test(m)) return 'الصلاحيات مرفوضة. شغّل ملف sql/supabase_setup.sql فـ SQL Editor ثم أعد المحاولة.'; if(/relation .* does not exist|schema cache/i.test(m)) return 'الجداول ناقصة أو ما تحدّثش مخطط Supabase. شغّل ملف SQL المرفق ثم أعد المحاولة.'; return m;};
 function setStatus(id,msg,type=''){const el=$(id);if(!el)return;el.textContent=msg;el.classList.remove('good','bad');if(type)el.classList.add(type);}
@@ -624,4 +634,245 @@ function set(l){L=l;localStorage.setItem('aura_lang',l);document.documentElement
 const sel=document.getElementById('langSelect');sel.value=L;sel.onchange=()=>set(sel.value);
 new MutationObserver(()=>{if(L!=='ar'&&!busy){busy=true;setTimeout(()=>{busy=false;apply(document.body)},50)}}).observe(document.body,{childList:true,subtree:true,characterData:true});
 if(L!=='ar')set(L)})();
-</script></body></html>
+</script><script>
+(function(){
+  var AI_WEBHOOK='https://jlmahdi.app.n8n.cloud/webhook/aura-study-chat';
+  var PAGE_MAX=3500, KB_MAX=9000, FILE_MAX=3000, MAX_FILES=3, MAX_PAGES=40, MAX_BYTES=20*1024*1024;
+  var PDFJS='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/';
+  var sid=newSid();
+  function newSid(){return 'aura-'+Math.random().toString(36).slice(2)+Date.now().toString(36);}
+  var fab=document.getElementById('auraAiFab'),panel=document.getElementById('auraAiPanel'),
+      msgs=document.getElementById('aiMsgs'),form=document.getElementById('aiForm'),
+      inp=document.getElementById('aiInput'),send=document.getElementById('aiSend'),
+      useCtx=document.getElementById('aiUseCtx'),useKb=document.getElementById('aiUseKb');
+  if(!fab||!panel)return;
+  var state=window.__AURA_STATE;
+  function signCached(b,p){return window.__AURA_SIGN(b,p);}
+
+  function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+  function add(text,cls,html){var d=document.createElement('div');d.className='aiMsg '+cls;d.dir='auto';if(html)d.innerHTML=text;else d.textContent=text;msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight;return d;}
+  function fmt(s){return esc(s).replace(/\*\*([^*]+)\*\*/g,'<strong>$1</strong>');}
+
+  function open(){panel.classList.add('open');setTimeout(function(){inp.focus();},50);}
+  function close(){panel.classList.remove('open');}
+  fab.addEventListener('click',function(){panel.classList.contains('open')?close():open();});
+  document.getElementById('aiClose').addEventListener('click',close);
+  document.getElementById('aiClear').addEventListener('click',function(){sid=newSid();msgs.innerHTML='';add('محادثة جديدة. شنو بغيتي تسول؟','bot');});
+
+  /* ---------- 1) what the user currently sees ---------- */
+  function getPageContext(){
+    var out=[];
+    try{
+      var page=document.querySelector('.page.active');
+      if(page){
+        var h=page.querySelector('h1');
+        out.push('الصفحة الحالية: '+(h?h.textContent.trim():page.id));
+        out.push('محتوى الصفحة:\n'+(page.innerText||'').replace(/\n{3,}/g,'\n\n').trim());
+      }
+    }catch(e){}
+    try{
+      if(typeof state!=='undefined'&&state){
+        var p=state.profile||{};
+        if(p.full_name||p.role)out.push('المستخدم: '+(p.full_name||'')+(p.role?' ('+p.role+')':''));
+        if(state.selectedGroup)out.push('المجموعة المفتوحة: '+(state.selectedGroup.name||''));
+      }
+    }catch(e){}
+    var s=out.join('\n\n');
+    return s.length>PAGE_MAX?s.slice(0,PAGE_MAX)+'\n...(مقطوع)':s;
+  }
+
+  /* ---------- 2) search Supabase (respects RLS: only what the user can already see) ---------- */
+  var STOP='شنو شني كيف كيفاش فين علاش واش بغيت بغيتي عطيني عطني قول ليا لي ديال ديالي ديالنا هاد هادا هادي هذا هذه هذي في من على الى إلى عن مع ما ماذا هل كان كانت لخص لخصلي اشرح شرح الملف ملف الملفات فهذا فهاد اللي لي كاين كاينة the and for you are what how this that with from'.split(' ');
+  function keywords(q){
+    var seen={},out=[];
+    (q.toLowerCase().match(/[\u0600-\u06FFa-z0-9\u00C0-\u017F]+/g)||[]).forEach(function(w){
+      var n=w.replace(/^ال(?=.{3,})/,'');
+      if(n.length<3||STOP.indexOf(w)>-1||STOP.indexOf(n)>-1||seen[n])return;
+      seen[n]=1;out.push(n);
+    });
+    return out.slice(0,6);
+  }
+  function norm(t){return String(t||'').toLowerCase().replace(/[\u064B-\u0652]/g,'');}
+  function score(text,kws){var t=norm(text),n=0;kws.forEach(function(k){if(t.indexOf(k)>-1)n++;});return n;}
+  function myGroupIds(){try{return state.memberships.map(function(m){return m.group_id;});}catch(e){return [];}}
+  function gname(id){try{var g=state.groups.find(function(x){return x.id===id;});return g?g.name:'';}catch(e){return '';}}
+  function cut(t,n){t=String(t||'').replace(/\s+/g,' ').trim();return t.length>n?t.slice(0,n)+'…':t;}
+
+  var pdfReady=null;
+  function loadPdfJs(){
+    if(window.pdfjsLib&&window.pdfjsLib.__ready)return Promise.resolve(window.pdfjsLib);
+    if(pdfReady)return pdfReady;
+    pdfReady=new Promise(function(res,rej){
+      var sc=document.createElement('script');sc.src=PDFJS+'pdf.min.js';
+      sc.onload=function(){
+        // cross-origin workers are blocked: load the worker through a blob URL
+        fetch(PDFJS+'pdf.worker.min.js').then(function(r){return r.text();}).then(function(code){
+          pdfjsLib.GlobalWorkerOptions.workerSrc=URL.createObjectURL(new Blob([code],{type:'text/javascript'}));
+          pdfjsLib.__ready=true;res(pdfjsLib);
+        }).catch(rej);
+      };
+      sc.onerror=function(){rej(new Error('pdf.js'));};
+      document.head.appendChild(sc);
+    });
+    return pdfReady;
+  }
+
+  var textCache={};   // storage_path -> extracted text
+  async function extractText(r){
+    if(r.storage_path in textCache)return textCache[r.storage_path];
+    var urls=await signCached('aura-resources',[r.storage_path]);
+    var url=urls[r.storage_path];if(!url)return '';
+    var resp=await fetch(url);if(!resp.ok)return '';
+    var buf=await resp.arrayBuffer();
+    if(buf.byteLength>MAX_BYTES){return textCache[r.storage_path]='';}
+    var name=(r.file_name||'').toLowerCase(),type=(r.content_type||'').toLowerCase(),text='';
+    if(type.indexOf('pdf')>-1||/\.pdf$/.test(name)){
+      var lib=await loadPdfJs();
+      var doc=await lib.getDocument({data:new Uint8Array(buf)}).promise;
+      var pages=Math.min(doc.numPages,MAX_PAGES),parts=[];
+      for(var i=1;i<=pages;i++){
+        var pg=await doc.getPage(i),tc=await pg.getTextContent();
+        parts.push(tc.items.map(function(x){return x.str;}).join(' '));
+      }
+      text=parts.join('\n');
+    }else if(type.indexOf('text')>-1||/\.txt$/.test(name)){
+      text=new TextDecoder('utf-8').decode(buf);
+    }
+    text=text.replace(/[ \t]+/g,' ').replace(/\n{2,}/g,'\n').trim();
+    return textCache[r.storage_path]=text;
+  }
+  function bestChunks(text,kws,max){
+    if(text.length<=max)return text;
+    var size=900,chunks=[];
+    for(var i=0;i<text.length;i+=size)chunks.push({i:i,t:text.slice(i,i+size),s:score(text.slice(i,i+size),kws)});
+    var picked=chunks.filter(function(c){return c.s>0;}).sort(function(a,b){return b.s-a.s;}).slice(0,Math.max(1,Math.floor(max/size)));
+    if(!picked.length)picked=chunks.slice(0,Math.max(1,Math.floor(max/size)));
+    return picked.sort(function(a,b){return a.i-b.i;}).map(function(c){return c.t;}).join(' […] ');
+  }
+
+  async function getKnowledge(q,setStatus){
+    var db=state&&state.client,gids=myGroupIds(),kws=keywords(q),parts=[],sources=[];
+    if(!db||!gids.length)return {text:'',sources:[]};
+
+    // a) tasks
+    try{
+      var tr=await db.from('tasks').select('group_id,title,description,due_at').in('group_id',gids).order('due_at',{ascending:true,nullsFirst:false}).limit(60);
+      var tasks=(tr.data||[]);
+      if(tasks.length)parts.push('مهام مجموعاتي:\n'+tasks.slice(0,25).map(function(k){
+        return '- ['+gname(k.group_id)+'] '+k.title+(k.due_at?' (آخر أجل: '+String(k.due_at).slice(0,10)+')':'')+(k.description?': '+cut(k.description,160):'');
+      }).join('\n'));
+    }catch(e){}
+
+    // b) group chat messages that mention the keywords (DMs are never read)
+    if(kws.length){
+      try{
+        var orf=kws.map(function(k){return 'content.ilike.%'+k+'%';}).join(',');
+        var mr=await db.from('messages').select('group_id,channel,sender_id,content,created_at').in('group_id',gids).or(orf).order('created_at',{ascending:false}).limit(40);
+        var ms=(mr.data||[]).filter(function(m){return m.content&&m.content.indexOf('[[AURA_')!==0;}).slice(0,15);
+        if(ms.length){
+          var ids=Array.from(new Set(ms.map(function(m){return m.sender_id;}))),names={};
+          try{var pr=await db.from('profiles').select('id,full_name').in('id',ids);(pr.data||[]).forEach(function(p){names[p.id]=p.full_name;});}catch(e){}
+          parts.push('رسائل من مجموعاتي فيها كلمات السؤال:\n'+ms.map(function(m){
+            return '- ['+gname(m.group_id)+'/'+(m.channel||'')+'] '+(names[m.sender_id]||'عضو')+' ('+String(m.created_at).slice(0,10)+'): '+cut(m.content,220);
+          }).join('\n'));
+        }
+      }catch(e){}
+    }
+
+    // c) news posts
+    if(kws.length){
+      try{
+        var orp=kws.map(function(k){return 'content.ilike.%'+k+'%';}).join(',');
+        var po=await db.from('posts').select('content,created_at').or(orp).order('created_at',{ascending:false}).limit(3);
+        if((po.data||[]).length)parts.push('أخبار:\n'+po.data.map(function(p){return '- '+cut(p.content,200);}).join('\n'));
+      }catch(e){}
+    }
+
+    // d) files: pick the most relevant PDFs/TXT, read them, keep the relevant passages
+    try{
+      var rr=await db.from('resources').select('id,group_id,file_name,storage_path,content_type,created_at').in('group_id',gids).not('storage_path','like','dm/%').order('created_at',{ascending:false}).limit(200);
+      if(rr.error)parts.push('(تعذر جلب لائحة الملفات: '+rr.error.message+')');
+      var files=(rr.data||[]).filter(function(r){return /pdf|text/.test((r.content_type||'').toLowerCase())||/\.(pdf|txt)$/i.test(r.file_name||'');});
+      var openId=state.selectedGroup&&state.selectedGroup.id;
+      var wantsFile=/ملف|pdf|درس|ملخص|تمرين|امتحان|كتاب|document|file|cours|exercice/i.test(q);
+      files.forEach(function(r){
+        r._s=score(r.file_name+' '+gname(r.group_id),kws)*3+(r.group_id===openId?1:0);
+      });
+      var cand=files.filter(function(r){return r._s>=3;});
+      if(!cand.length&&wantsFile&&openId)cand=files.filter(function(r){return r.group_id===openId;});
+      if(!cand.length&&wantsFile)cand=files.slice(0,MAX_FILES);   // "summarize the file" with no name: take the newest files
+      if(!cand.length&&kws.length&&files.length)cand=files.slice(0,6);  // no name match: peek into the newest files for matching passages
+      cand=cand.sort(function(a,b){return b._s-a._s;}).slice(0,MAX_FILES);
+      for(var i=0;i<cand.length;i++){
+        var r=cand[i];
+        setStatus('كنقرا الملف: '+cut(r.file_name,40)+' …');
+        var t='';try{t=await extractText(r);}catch(e){t='';}
+        if(!t||t.length<30){continue;}
+        var hit=kws.length?score(t,kws):1;
+        if(!hit&&r._s<3&&!wantsFile)continue;   // peeked file with no relevant passage
+        parts.push('ملف "'+r.file_name+'" (مجموعة '+gname(r.group_id)+'):\n'+bestChunks(t,kws,FILE_MAX));
+        sources.push(r.file_name);
+      }
+      if(wantsFile&&!sources.length)parts.push('ملاحظة للمساعد: المستخدم طلب ملفا، لكن ما تلقاش أي ملف PDF/TXT قابل للقراءة فمجموعاته (ممكن يكون PDF مصور/Scan أو ما كاينش). قول ليه هادشي بوضوح وما تطلبش منو يصيفط الملف.');
+    }catch(e){}
+
+    var text=parts.join('\n\n');
+    if(text.length>KB_MAX)text=text.slice(0,KB_MAX)+'\n...(مقطوع)';
+    return {text:text,sources:sources};
+  }
+
+  /* ---------- 3) اتصال Aura AI بـ n8n Webhook ---------- */
+  async function ask(message,setStatus){
+    var body={message:message,sessionId:sid},ctx=[],sources=[];
+    if(useCtx.checked)ctx.push(getPageContext());
+    if(useKb.checked){
+      try{
+        var kb=await getKnowledge(message,setStatus);
+        if(kb.text)ctx.push('معلومات من مجموعات المستخدم (ملفات، محادثات، مهام):\n'+kb.text);
+        sources=kb.sources||[];
+      }catch(e){console.warn('Aura AI context lookup failed:',e);}
+    }
+    if(ctx.length)body.context=ctx.join('\n\n=====\n\n');
+    setStatus('كنرسل السؤال للمساعد…');
+    var controller=new AbortController();
+    var timer=setTimeout(function(){controller.abort();},60000);
+    var r;
+    try{
+      r=await fetch(AI_WEBHOOK,{
+        method:'POST',
+        headers:{'Content-Type':'application/json','Accept':'application/json, text/plain'},
+        body:JSON.stringify(body),
+        signal:controller.signal
+      });
+    }catch(e){
+      if(e.name==='AbortError')throw new Error('تجاوز الاتصال 60 ثانية. تأكد أن Workflow ديال n8n خدام.');
+      throw new Error('ما قدرناش نتاصلو بـ n8n. تأكد من Webhook ومن إعدادات CORS/الاتصال.');
+    }finally{clearTimeout(timer);}
+    var raw=await r.text();
+    if(!r.ok)throw new Error('Webhook رجع HTTP '+r.status+(raw?' — '+raw.slice(0,180):''));
+    var data;
+    try{data=raw?JSON.parse(raw):{};}catch(_){data={text:raw};}
+    if(Array.isArray(data))data=data[0]||{};
+    var reply=(typeof data==='string'?data:(data.output||data.text||data.message||data.reply||data.response||data.answer||(data.data&&(data.data.output||data.data.text||data.data.message))));
+    if(reply&&typeof reply==='object')reply=JSON.stringify(reply);
+    if(!reply)throw new Error('الاتصال خدام ولكن n8n ما رجع حتى جواب نصي. راجع Respond to Webhook أو صيغة مخرجات AI Agent.');
+    return {text:String(reply),sources:sources};
+  }
+
+  form.addEventListener('submit',async function(e){
+    e.preventDefault();
+    var text=inp.value.trim();if(!text)return;
+    add(text,'me');inp.value='';send.disabled=true;
+    var wait=add('...','bot');
+    function setStatus(t){wait.textContent=t;msgs.scrollTop=msgs.scrollHeight;}
+    try{
+      var res=await ask(text,setStatus);
+      wait.innerHTML=fmt(res.text);
+      if(res.sources.length){var s=document.createElement('div');s.className='aiSrc';s.dir='auto';s.textContent='📎 قريت من: '+res.sources.join(' · ');msgs.appendChild(s);}
+    }catch(err){wait.textContent='وقع خطأ، عاود حاول. ('+err.message+')';wait.classList.add('err');}
+    finally{send.disabled=false;inp.focus();msgs.scrollTop=msgs.scrollHeight;}
+  });
+  inp.addEventListener('keydown',function(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();form.requestSubmit();}});
+})();
+</script>
+</body></html>
